@@ -13,7 +13,7 @@ const {
 export function setEmail(value) {
   return {
     type: SET_EMAIL,
-    payload: value
+    payload: value,
   };
 }
 

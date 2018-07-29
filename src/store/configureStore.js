@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from '../reducers';
 import thunk from 'redux-thunk';
+import delayMiddleware from '../middlewares/delay'
 
 export default function configureStore(initialState = {}) {
   const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -8,7 +9,7 @@ export default function configureStore(initialState = {}) {
   const store = createStore(
     rootReducer,
     devTools,
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, delayMiddleware)
   );
 
   return store;
